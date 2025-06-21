@@ -9,42 +9,42 @@ const PortfolioPreview = () => {
     { id: 'all', name: 'جميع الأعمال' },
     { id: 'villa', name: 'فلل' },
     { id: 'apartment', name: 'شقق' },
-    { id: 'commercial', name: 'تجاري' },
-    { id: 'hotel', name: 'فنادق' }
+    { id: 'hotel', name: 'فنادق' },
+    { id: 'commercial', name: 'تجاري' }
   ];
 
   const projects = [
     {
       id: 1,
-      title: 'فيلا عصرية - الرياض',
+      title: 'فيلا فاخرة - الرياض',
       category: 'villa',
       image: 'https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=800&q=80',
-      description: 'تصميم معماري حديث مع مساحات مفتوحة',
-      tags: ['تصور ثلاثي الأبعاد', 'جولة افتراضية']
+      description: 'جولة افتراضية شاملة لفيلا من 4 غرف مع حديقة',
+      tags: ['جولة 360°', 'مخطط تفاعلي']
     },
     {
       id: 2,
-      title: 'شقة فاخرة - جدة',
+      title: 'شقة عصرية - جدة',
       category: 'apartment',
       image: 'https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=800&q=80',
-      description: 'شقة سكنية بإطلالة بحرية مذهلة',
-      tags: ['تصور ثلاثي الأبعاد', 'مخططات تفاعلية']
+      description: 'شقة 3 غرف بإطلالة بحرية مع جولة افتراضية',
+      tags: ['تصوير 360°', 'قياس مساحات']
     },
     {
       id: 3,
-      title: 'مجمع تجاري - الدمام',
-      category: 'commercial',
+      title: 'جناح فندقي - المدينة',
+      category: 'hotel',
       image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80',
-      description: 'مركز تسوق متعدد الطوابق',
-      tags: ['رسوم متحركة', 'جولة افتراضية']
+      description: 'جناح فاخر مع جولة تفاعلية للنزلاء',
+      tags: ['جولة فندقية', 'حجز مباشر']
     },
     {
       id: 4,
-      title: 'منتجع فندقي - المدينة',
-      category: 'hotel',
+      title: 'معرض تجاري - الدمام',
+      category: 'commercial',
       image: 'https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?auto=format&fit=crop&w=800&q=80',
-      description: 'منتجع سياحي بطراز معاصر',
-      tags: ['تصور ثلاثي الأبعاد', 'جولة افتراضية']
+      description: 'معرض سيارات مع جولة افتراضية شاملة',
+      tags: ['مساحة تجارية', 'عرض منتجات']
     }
   ];
 
@@ -57,10 +57,10 @@ const PortfolioPreview = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">
-            معرض أعمالنا
+            معرض الجولات الافتراضية
           </h2>
           <p className="text-xl text-charcoal/70 max-w-3xl mx-auto mb-12">
-            استكشف مجموعة مختارة من مشاريعنا التي حولت مخططات عادية إلى تجارب بصرية غامرة
+            استكشف مجموعة من الجولات الافتراضية التي أنشأناها لعملائنا في مختلف أنواع العقارات
           </p>
 
           {/* Filter Buttons */}
@@ -121,7 +121,7 @@ const PortfolioPreview = () => {
                   variant="outline"
                   className="border-deep-teal text-deep-teal hover:bg-deep-teal hover:text-warm-beige w-full"
                 >
-                  عرض التفاصيل
+                  مشاهدة الجولة
                 </Button>
               </div>
             </div>
@@ -134,7 +134,7 @@ const PortfolioPreview = () => {
             size="lg"
             className="bg-deep-teal hover:bg-deep-teal/90 text-warm-beige px-8 py-4"
           >
-            عرض جميع الأعمال
+            عرض جميع الجولات
           </Button>
         </div>
       </div>

@@ -31,7 +31,7 @@ const HeroSection = () => {
           >
             <img
               src={image}
-              alt={`Architecture ${index + 1}`}
+              alt={`Virtual Tour ${index + 1}`}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-l from-warm-beige/80 via-warm-beige/60 to-warm-beige/40"></div>
@@ -50,13 +50,13 @@ const HeroSection = () => {
         <div className="max-w-4xl">
           <div className="animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold text-charcoal mb-6 leading-tight">
-              <span className="block">حوّل عقارك</span>
-              <span className="block gradient-text">إلى تجربة غامرة</span>
+              <span className="block">صوّر عقارك</span>
+              <span className="block gradient-text">واجعله جولة افتراضية</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-charcoal/80 mb-8 max-w-2xl leading-relaxed">
-              نقدم خدمات التصوير ثلاثي الأبعاد والجولات الافتراضية المتطورة 
-              لتحويل عقارك إلى معرض رقمي يجذب العملاء ويسرّع عملية البيع والإيجار
+              نقوم بتصوير عقارك الجاهز باستخدام تقنيات متطورة وتحويله إلى جولة افتراضية 
+              ثلاثية الأبعاد يتمكن العملاء من خلالها من استكشاف المكان كأنهم بداخله
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -64,7 +64,7 @@ const HeroSection = () => {
                 size="lg" 
                 className="bg-deep-teal hover:bg-deep-teal/90 text-warm-beige px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                اكتشف خدماتنا
+                احجز جلسة تصوير
               </Button>
               
               <Button 
@@ -72,27 +72,27 @@ const HeroSection = () => {
                 variant="outline" 
                 className="border-deep-teal text-deep-teal hover:bg-deep-teal hover:text-warm-beige px-8 py-4 text-lg font-semibold transition-all duration-300"
               >
-                شاهد أعمالنا
+                شاهد الجولات
               </Button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-deep-teal/20">
               <div className="text-center">
-                <div className="text-3xl font-bold text-deep-teal mb-2">200+</div>
-                <div className="text-charcoal/70">مشروع منجز</div>
+                <div className="text-3xl font-bold text-deep-teal mb-2">300+</div>
+                <div className="text-charcoal/70">عقار مصوّر</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-deep-teal mb-2">95%</div>
-                <div className="text-charcoal/70">رضا العملاء</div>
+                <div className="text-3xl font-bold text-deep-teal mb-2">360°</div>
+                <div className="text-charcoal/70">جولة تفاعلية</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-deep-teal mb-2">40%</div>
-                <div className="text-charcoal/70">زيادة في السرعة</div>
+                <div className="text-3xl font-bold text-deep-teal mb-2">50%</div>
+                <div className="text-charcoal/70">زيادة في الاستفسارات</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-deep-teal mb-2">24h</div>
-                <div className="text-charcoal/70">وقت التسليم</div>
+                <div className="text-3xl font-bold text-deep-teal mb-2">48h</div>
+                <div className="text-charcoal/70">تسليم الجولة</div>
               </div>
             </div>
           </div>

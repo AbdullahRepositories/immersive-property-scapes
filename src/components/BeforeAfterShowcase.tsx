@@ -27,10 +27,10 @@ const BeforeAfterShowcase = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">
-            شاهد التحول المذهل
+            شاهد الفرق المذهل
           </h2>
           <p className="text-xl text-charcoal/70 max-w-3xl mx-auto">
-            من مخطط عادي إلى تجربة بصرية غامرة تجذب انتباه عملائك وتحفزهم على اتخاذ القرار
+            من صور عادية إلى جولة افتراضية تفاعلية تمنح عملاءك تجربة حقيقية لاستكشاف العقار
           </p>
         </div>
 
@@ -45,12 +45,12 @@ const BeforeAfterShowcase = () => {
             {/* Before Image */}
             <div className="absolute inset-0">
               <img
-                src="https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&w=1200&q=80"
-                alt="Before - 2D Floor Plan"
+                src="https://images.unsplash.com/photo-1600563438938-a42d098f3b04?auto=format&fit=crop&w=1200&q=80"
+                alt="Before - Regular Photos"
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-6 left-6 bg-charcoal/80 text-warm-beige px-4 py-2 rounded-lg font-semibold">
-                قبل: المخطط الأساسي
+                قبل: الصور العادية
               </div>
             </div>
 
@@ -61,11 +61,11 @@ const BeforeAfterShowcase = () => {
             >
               <img
                 src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=1200&q=80"
-                alt="After - 3D Visualization"
+                alt="After - Virtual Tour"
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-6 right-6 bg-deep-teal text-warm-beige px-4 py-2 rounded-lg font-semibold">
-                بعد: التصور ثلاثي الأبعاد
+                بعد: الجولة الافتراضية
               </div>
             </div>
 

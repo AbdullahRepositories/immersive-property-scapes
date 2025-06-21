@@ -50,22 +50,22 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-4 rtl:space-x-reverse mb-4">
                 <div className="w-12 h-12 bg-deep-teal rounded-lg flex items-center justify-center">
-                  <span className="text-warm-beige font-bold text-xl">3D</span>
+                  <span className="text-warm-beige font-bold text-xl">360</span>
                 </div>
-                <h3 className="text-xl font-bold">المناظر العقارية الغامرة</h3>
+                <h3 className="text-xl font-bold">الجولات الافتراضية العقارية</h3>
               </div>
               <p className="text-warm-beige/70 leading-relaxed">
-                نحول عقارك إلى تجربة غامرة باستخدام أحدث تقنيات التصوير ثلاثي الأبعاد والجولات الافتراضية
+                نصوّر عقارك ونحوله إلى جولة افتراضية تفاعلية تمنح العملاء تجربة حقيقية للمكان
               </p>
             </div>
             
             <div>
               <h4 className="text-lg font-bold mb-4">خدماتنا</h4>
               <ul className="space-y-2 text-warm-beige/70">
-                <li>التصوير ثلاثي الأبعاد</li>
-                <li>الجولات الافتراضية</li>
-                <li>المخططات التفاعلية</li>
-                <li>الرسوم المتحركة</li>
+                <li>تصوير عقاري 360°</li>
+                <li>جولات افتراضية تفاعلية</li>
+                <li>تصوير فوتوغرافي احترافي</li>
+                <li>مقاطع فيديو عقارية</li>
               </ul>
             </div>
             
@@ -73,7 +73,7 @@ const Index = () => {
               <h4 className="text-lg font-bold mb-4">تواصل معنا</h4>
               <div className="space-y-2 text-warm-beige/70">
                 <p>الهاتف: +966 50 123 4567</p>
-                <p>البريد: info@immersive-props.sa</p>
+                <p>البريد: info@virtual-tours.sa</p>
                 <p>ساعات العمل: السبت - الخميس</p>
                 <p>9:00 ص - 6:00 م</p>
               </div>
@@ -81,7 +81,7 @@ const Index = () => {
           </div>
           
           <div className="border-t border-warm-beige/20 mt-8 pt-8 text-center text-warm-beige/60">
-            <p>&copy; 2024 المناظر العقارية الغامرة. جميع الحقوق محفوظة.</p>
+            <p>&copy; 2024 الجولات الافتراضية العقارية. جميع الحقوق محفوظة.</p>
           </div>
         </div>
       </footer>
