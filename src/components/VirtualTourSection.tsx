@@ -41,7 +41,7 @@ const VirtualTourSection = () => {
         </div>
 
         <div className="max-w-6xl mx-auto animate-on-scroll">
-          <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-xl bg-light-grey">
+          <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-xl bg-light-grey min-h-[500px]">
             <div id="F_bT4A587K">
               <script 
                 type="text/javascript" 
@@ -49,8 +49,6 @@ const VirtualTourSection = () => {
                 data-short="F_bT4A587K" 
                 data-path="tours" 
                 data-is-self-hosted="false" 
-                width="100%" 
-                height="500px" 
                 src="https://app.cloudpano.com/public/shareScript.js"
               ></script>
             </div>
