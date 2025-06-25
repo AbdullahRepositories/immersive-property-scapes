@@ -57,6 +57,13 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    /* Hide scrollbars */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
   }
 
   body {
@@ -65,15 +72,43 @@
     min-height: 100vh;
     min-height: 100dvh;
     overflow-x: hidden;
+    /* Hide scrollbars */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  /* RTL Support */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide all scrollbars globally */
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  /* RTL/LTR Support with proper transitions */
   [dir="ltr"] {
     direction: ltr;
   }
 
   [dir="ltr"] body {
     @apply font-montserrat;
+  }
+
+  /* Proper RTL/LTR spacing */
+  [dir="rtl"] .space-x-reverse > * + * {
+    margin-right: var(--tw-space-x-reverse);
+    margin-left: calc(var(--tw-space-x-reverse) * 0);
+  }
+
+  [dir="ltr"] .space-x-reverse > * + * {
+    margin-left: var(--tw-space-x-reverse);
+    margin-right: calc(var(--tw-space-x-reverse) * 0);
   }
 
   /* Mobile-first responsive typography */
@@ -88,6 +123,7 @@
   /* Improve touch targets for mobile */
   button, a, input, select, textarea {
     touch-action: manipulation;
+    min-height: 44px;
   }
 
   /* Prevent horizontal scroll on mobile */
@@ -138,9 +174,9 @@
     @apply w-full sm:w-auto min-h-[44px] text-base;
   }
 
-  /* Responsive spacing utilities */
+  /* Responsive spacing utilities with proper RTL/LTR handling */
   .section-padding {
-    @apply py-12 sm:py-16 lg:py-20;
+    @apply py-8 sm:py-12 md:py-16 lg:py-20;
   }
 
   .container-padding {
@@ -173,35 +209,51 @@
   }
 
   .text-responsive-3xl {
-    @apply text-3xl sm:text-4xl lg:text-5xl;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
   }
 
   .text-responsive-4xl {
-    @apply text-4xl sm:text-5xl lg:text-6xl;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  /* Proper RTL/LTR spacing utilities */
+  .rtl-space-x-reverse {
+    --tw-space-x-reverse: 1;
+  }
+
+  .ltr-space-x-reverse {
+    --tw-space-x-reverse: 0;
+  }
+
+  /* Floating WhatsApp button */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  [dir="rtl"] .whatsapp-float {
+    left: 20px;
+  }
+
+  [dir="ltr"] .whatsapp-float {
+    right: 20px;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
   }
 }
 
-/* Custom scrollbar for webkit browsers */
+/* Remove custom scrollbar utilities since we're hiding all scrollbars */
 @layer utilities {
-  .scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: rgb(13 115 119 / 0.3) transparent;
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: rgb(13 115 119 / 0.3);
-    border-radius: 3px;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(13 115 119 / 0.5);
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
