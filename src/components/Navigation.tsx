@@ -68,7 +68,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className={`hidden lg:flex items-center ${isRTL ? 'space-x-6 xl:space-x-8 space-x-reverse' : 'space-x-6 xl:space-x-8'}`}>
+          <div className={`hidden lg:flex items-center ${isRTL ? 'space-x-8 xl:space-x-10 space-x-reverse' : 'space-x-8 xl:space-x-10'}`}>
             {currentContent.menuItems.map((item) => (
               <a
                 key={item.name}

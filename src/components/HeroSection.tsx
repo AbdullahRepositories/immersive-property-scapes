@@ -130,7 +130,7 @@ const HeroSection = () => {
               <span className="block gradient-text">{currentContent.title2}</span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-charcoal/80 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-charcoal/80 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-4 sm:px-0">
               {currentContent.subtitle}
             </p>
 
