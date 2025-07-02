@@ -25,48 +25,98 @@ const Preloader = () => {
   return (
     <div className="fixed inset-0 z-[9999] bg-warm-beige flex items-center justify-center">
       <div className="text-center space-y-8">
-        {/* 360° Camera Lens Animation */}
+        {/* Camera Creation Animation */}
         <div className="relative">
-          {/* Outer rotating ring representing 360° */}
-          <div className="w-32 h-32 border-4 border-deep-teal/30 rounded-full animate-spin duration-3000">
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1 w-3 h-3 bg-deep-teal rounded-full"></div>
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1 w-3 h-3 bg-deep-teal rounded-full"></div>
-            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1 w-3 h-3 bg-deep-teal rounded-full"></div>
-            <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1 w-3 h-3 bg-deep-teal rounded-full"></div>
-          </div>
-          
-          {/* Camera lens center */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-20 h-20 bg-charcoal rounded-full flex items-center justify-center shadow-lg">
-              {/* Lens aperture blades */}
-              <div className="w-16 h-16 relative">
-                <div className="absolute inset-0 rounded-full border-2 border-deep-teal animate-pulse">
-                  {/* Aperture blades */}
-                  {[...Array(8)].map((_, i) => (
+          {/* Camera Body */}
+          <div className="relative">
+            {/* Main camera body */}
+            <div className="w-32 h-24 bg-charcoal rounded-lg shadow-2xl animate-pulse">
+              {/* Camera top */}
+              <div className="absolute -top-3 left-4 right-4 h-6 bg-charcoal rounded-t-lg"></div>
+              
+              {/* Viewfinder */}
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-8 h-4 bg-charcoal rounded-t-md"></div>
+              
+              {/* Flash */}
+              <div className="absolute -top-2 right-2 w-3 h-2 bg-soft-gold rounded-sm animate-pulse"></div>
+              
+              {/* Brand name area */}
+              <div className="absolute top-2 left-3 right-3 h-2 bg-deep-teal/20 rounded"></div>
+            </div>
+
+            {/* Camera Lens - Main Focus */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              {/* Outer lens ring */}
+              <div className="w-20 h-20 bg-charcoal rounded-full flex items-center justify-center shadow-lg animate-spin duration-4000">
+                {/* Lens markings */}
+                <div className="absolute inset-0 rounded-full">
+                  {[...Array(12)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-0.5 h-6 bg-deep-teal"
+                      className="absolute w-0.5 h-2 bg-deep-teal/40"
                       style={{
                         left: '50%',
-                        top: '50%',
-                        transformOrigin: '50% 0%',
-                        transform: `translate(-50%, -50%) rotate(${i * 45}deg)`,
+                        top: '0',
+                        transformOrigin: '50% 40px',
+                        transform: `translateX(-50%) rotate(${i * 30}deg)`,
                       }}
                     />
                   ))}
                 </div>
                 
-                {/* Inner lens reflection */}
-                <div className="absolute inset-2 rounded-full bg-gradient-to-br from-deep-teal/20 to-soft-gold/20 animate-pulse">
-                  <div className="absolute top-1 left-1 w-2 h-2 bg-warm-beige/40 rounded-full"></div>
+                {/* Inner lens */}
+                <div className="w-14 h-14 bg-gradient-to-br from-deep-teal/30 to-charcoal rounded-full flex items-center justify-center">
+                  {/* Aperture blades */}
+                  <div className="w-10 h-10 relative">
+                    {[...Array(6)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute w-1 h-4 bg-deep-teal rounded-full animate-pulse"
+                        style={{
+                          left: '50%',
+                          top: '50%',
+                          transformOrigin: '50% 0%',
+                          transform: `translate(-50%, -50%) rotate(${i * 60}deg)`,
+                          animationDelay: `${i * 0.1}s`,
+                        }}
+                      />
+                    ))}
+                    
+                    {/* Center aperture */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-4 h-4 bg-charcoal rounded-full animate-pulse">
+                        <div className="w-2 h-2 bg-soft-gold/30 rounded-full m-1"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+              
+              {/* Lens reflection */}
+              <div className="absolute top-2 left-2 w-3 h-3 bg-warm-beige/60 rounded-full animate-pulse"></div>
             </div>
+
+            {/* Camera controls */}
+            <div className="absolute top-1 right-2 space-y-1">
+              <div className="w-2 h-2 bg-deep-teal rounded-full animate-pulse"></div>
+              <div className="w-2 h-1 bg-soft-gold/60 rounded"></div>
+            </div>
+
+            {/* Shutter button */}
+            <div className="absolute -top-1 left-6 w-4 h-4 bg-deep-teal rounded-full animate-bounce"></div>
           </div>
+
+          {/* Creating animation effect */}
+          <div className="absolute -inset-4 border-2 border-deep-teal/20 rounded-2xl animate-ping"></div>
           
-          {/* 360° text indicator */}
-          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
-            <span className="text-deep-teal font-bold text-xl animate-pulse">360°</span>
+          {/* 360° indicator */}
+          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
+            <div className="flex items-center space-x-2">
+              <div className="w-6 h-6 border-2 border-deep-teal rounded-full animate-spin duration-2000">
+                <div className="w-1 h-1 bg-deep-teal rounded-full mt-0.5 ml-0.5"></div>
+              </div>
+              <span className="text-deep-teal font-bold text-lg animate-pulse">360°</span>
+            </div>
           </div>
         </div>
 
