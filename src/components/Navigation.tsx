@@ -1,10 +1,11 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<'ar' | 'en'>('ar');
+  const { language, isRTL, toggleLanguage } = useLanguage();
 
   const content = {
     ar: {
@@ -35,26 +36,14 @@ const Navigation = () => {
     }
   };
 
-  const toggleLanguage = () => {
-    const newLang = language === 'ar' ? 'en' : 'ar';
-    setLanguage(newLang);
-    document.documentElement.lang = newLang;
-    document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
-    document.body.className = newLang === 'ar' ? 'font-cairo' : 'font-montserrat';
-    
-    // Dispatch custom event for other components to listen to
-    window.dispatchEvent(new CustomEvent('languageChange', { detail: newLang }));
-  };
-
   const currentContent = content[language];
-  const isRTL = language === 'ar';
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-warm-beige/95 backdrop-blur-md border-b border-light-grey">
       <div className="container mx-auto container-padding py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className={`flex items-center ${isRTL ? 'space-x-3 space-x-reverse' : 'space-x-3'}`}>
+          <div className={`flex items-center gap-3`}>
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-deep-teal rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 sm:w-6 sm:h-6 text-warm-beige" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
@@ -68,7 +57,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className={`hidden lg:flex items-center ${isRTL ? 'space-x-8 xl:space-x-10 space-x-reverse' : 'space-x-8 xl:space-x-10'}`}>
+          <div className={`hidden lg:flex items-center gap-8 xl:gap-10`}>
             {currentContent.menuItems.map((item) => (
               <a
                 key={item.name}
@@ -81,7 +70,7 @@ const Navigation = () => {
           </div>
 
           {/* Language Toggle & CTA */}
-          <div className={`flex items-center ${isRTL ? 'space-x-3 sm:space-x-4 space-x-reverse' : 'space-x-3 sm:space-x-4'}`}>
+          <div className={`flex items-center gap-3 sm:gap-4`}>
             <button
               onClick={toggleLanguage}
               className="flex items-center text-xs sm:text-sm text-charcoal hover:text-deep-teal transition-colors whitespace-nowrap px-2 py-1 rounded-md hover:bg-light-grey"

@@ -1,15 +1,16 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [language, setLanguage] = useState<'ar' | 'en'>('ar');
+  const { language, isRTL } = useLanguage();
   
   const [formData, setFormData] = useState({
     name: '',
@@ -108,17 +109,6 @@ const ContactSection = () => {
     }
   };
 
-  useEffect(() => {
-    const handleLanguageChange = (event: CustomEvent) => {
-      setLanguage(event.detail);
-    };
-
-    window.addEventListener('languageChange', handleLanguageChange as EventListener);
-    return () => {
-      window.removeEventListener('languageChange', handleLanguageChange as EventListener);
-    };
-  }, []);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -150,7 +140,6 @@ const ContactSection = () => {
   };
 
   const currentContent = content[language];
-  const isRTL = language === 'ar';
 
   return (
     <section id="contact" className="py-20 bg-warm-beige">
@@ -267,7 +256,7 @@ const ContactSection = () => {
                 <h3 className="text-2xl font-bold text-charcoal mb-6">{currentContent.contactTitle}</h3>
                 
                 <div className="space-y-6">
-                  <div className={`flex items-center ${isRTL ? 'space-x-4 space-x-reverse' : 'space-x-4'}`}>
+                  <div className={`flex items-center gap-4`}>
                     <div className="w-12 h-12 bg-deep-teal rounded-full flex items-center justify-center">
                       <span className="text-warm-beige text-xl">📞</span>
                     </div>
@@ -277,7 +266,7 @@ const ContactSection = () => {
                     </div>
                   </div>
 
-                  <div className={`flex items-center ${isRTL ? 'space-x-4 space-x-reverse' : 'space-x-4'}`}>
+                  <div className={`flex items-center gap-4`}>
                     <div className="w-12 h-12 bg-deep-teal rounded-full flex items-center justify-center">
                       <span className="text-warm-beige text-xl">✉️</span>
                     </div>
@@ -287,7 +276,7 @@ const ContactSection = () => {
                     </div>
                   </div>
 
-                  <div className={`flex items-center ${isRTL ? 'space-x-4 space-x-reverse' : 'space-x-4'}`}>
+                  <div className={`flex items-center gap-4`}>
                     <div className="w-12 h-12 bg-deep-teal rounded-full flex items-center justify-center">
                       <span className="text-warm-beige text-xl">⏰</span>
                     </div>
@@ -305,7 +294,7 @@ const ContactSection = () => {
                 <h3 className="text-2xl font-bold mb-4">{currentContent.whyChooseTitle}</h3>
                 <div className="space-y-4">
                   {currentContent.whyChoose.map((item, index) => (
-                    <div key={index} className={`flex items-center ${isRTL ? 'space-x-3 space-x-reverse' : 'space-x-3'}`}>
+                    <div key={index} className={`flex items-center gap-3`}>
                       <span className="text-2xl">
                         {index === 0 ? '⚡' : index === 1 ? '🏆' : index === 2 ? '💰' : '🔄'}
                       </span>
