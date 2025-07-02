@@ -1,13 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { language, isRTL } = useLanguage();
-  
+  const {
+    language,
+    isRTL
+  } = useLanguage();
   const heroImages = ['https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=1920&q=80', 'https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=1920&q=80', 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1920&q=80'];
-  
   const content = {
     ar: {
       title1: 'صوّر عقارك',
@@ -58,7 +58,6 @@ const HeroSection = () => {
       }]
     }
   };
-
   const getStatIcon = (iconType: string) => {
     switch (iconType) {
       case 'home':
@@ -82,26 +81,20 @@ const HeroSection = () => {
         return null;
     }
   };
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
-
   const currentContent = content[language];
-
-  return (
-    <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-20 sm:pt-24">
+  return <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-20 sm:pt-24">
       {/* Background Images with Parallax Effect */}
       <div className="absolute inset-0 z-0">
-        {heroImages.map((image, index) => (
-          <div key={index} className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-40' : 'opacity-0'}`}>
+        {heroImages.map((image, index) => <div key={index} className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-40' : 'opacity-0'}`}>
             <img src={image} alt={`Virtual Tour ${index + 1}`} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-l from-warm-beige/80 via-warm-beige/60 to-warm-beige/40"></div>
-          </div>
-        ))}
+          </div>)}
       </div>
 
       {/* Geometric Overlay */}
@@ -115,8 +108,8 @@ const HeroSection = () => {
         <div className={`max-w-4xl mx-auto ${isRTL ? 'lg:mr-0' : 'lg:ml-0'}`}>
           <div className={`animate-fade-in text-center ${isRTL ? 'lg:text-right' : 'lg:text-left'}`}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal mb-4 sm:mb-6 leading-tight">
-              <span className="block">{currentContent.title1}</span>
-              <span className="block gradient-text py-[8px] text-6xl">{currentContent.title2}</span>
+              <span className="block text-right">{currentContent.title1}</span>
+              <span className="block gradient-text py-[8px] text-6xl text-right">{currentContent.title2}</span>
             </h1>
             
             <p className={`text-base sm:text-lg md:text-xl lg:text-2xl text-charcoal/80 mb-6 sm:mb-8 max-w-2xl mx-auto ${isRTL ? 'lg:mr-0' : 'lg:ml-0'} leading-relaxed px-4 sm:px-0`}>
@@ -135,15 +128,13 @@ const HeroSection = () => {
 
             {/* Stats */}
             <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t border-deep-teal/20 max-w-4xl mx-auto ${isRTL ? 'lg:mr-0' : 'lg:ml-0'}`}>
-              {currentContent.stats.map((stat, index) => (
-                <div key={index} className="text-center p-4 rounded-lg bg-warm-beige/50 backdrop-blur-sm">
+              {currentContent.stats.map((stat, index) => <div key={index} className="text-center p-4 rounded-lg bg-warm-beige/50 backdrop-blur-sm">
                   <div className="flex justify-center">
                     {getStatIcon(stat.icon)}
                   </div>
                   <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-deep-teal mb-1 sm:mb-2">{stat.number}</div>
                   <div className="text-xs sm:text-sm text-charcoal/70 leading-tight">{stat.label}</div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -157,8 +148,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
