@@ -7,7 +7,6 @@ import PortfolioPreview from '@/components/PortfolioPreview';
 import ServicesOverview from '@/components/ServicesOverview';
 import ContactSection from '@/components/ContactSection';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
-import Preloader from '@/components/Preloader';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 
 const IndexContent = () => {
@@ -78,7 +77,6 @@ const IndexContent = () => {
 
   return (
     <>
-      <Preloader />
       <div className="min-h-screen bg-warm-beige">
         <Navigation />
         <main className="relative">
