@@ -108,8 +108,8 @@ const HeroSection = () => {
         <div className={`max-w-4xl mx-auto ${isRTL ? 'lg:mr-0' : 'lg:ml-0'}`}>
           <div className={`animate-fade-in text-center ${isRTL ? 'lg:text-right' : 'lg:text-left'}`}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal mb-4 sm:mb-6 leading-tight">
-              <span className="block text-right">{currentContent.title1}</span>
-              <span className="block gradient-text py-[8px] text-6xl text-right">{currentContent.title2}</span>
+              <span className="block text-left">{currentContent.title1}</span>
+              <span className="block gradient-text py-[8px] text-6xl text-center">{currentContent.title2}</span>
             </h1>
             
             <p className={`text-base sm:text-lg md:text-xl lg:text-2xl text-charcoal/80 mb-6 sm:mb-8 max-w-2xl mx-auto ${isRTL ? 'lg:mr-0' : 'lg:ml-0'} leading-relaxed px-4 sm:px-0`}>
