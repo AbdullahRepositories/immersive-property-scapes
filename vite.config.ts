@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/your-repo-name/", // Replace with your actual repository name
+  base: "/immersive-property-scapes/",
   server: {
     host: "::",
     port: 8080,
@@ -31,5 +31,4 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base:"/immersive-property-scapes/",
 }));
