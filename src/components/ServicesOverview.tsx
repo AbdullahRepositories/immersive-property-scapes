@@ -183,7 +183,7 @@ const ServicesOverview = () => {
                 </div>
               </div>
               
-              <CardHeader className={`pb-2 sm:pb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
+              <CardHeader className={`pb-2 sm:pb-4 flex flex-col ${isRTL ? 'text-right' : 'text-left'}`}>
                 <CardTitle className="text-lg sm:text-xl text-charcoal mb-2">
                   {service.title}
                 </CardTitle>
