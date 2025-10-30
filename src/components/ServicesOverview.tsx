@@ -1,9 +1,9 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useState, useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ServicesOverview = () => {
-  const [language, setLanguage] = useState<'ar' | 'en'>('ar');
+  const { language, isRTL } = useLanguage();
 
   const content = {
     ar: {
@@ -144,19 +144,7 @@ const ServicesOverview = () => {
     }
   };
 
-  useEffect(() => {
-    const handleLanguageChange = (event: CustomEvent) => {
-      setLanguage(event.detail);
-    };
-
-    window.addEventListener('languageChange', handleLanguageChange as EventListener);
-    return () => {
-      window.removeEventListener('languageChange', handleLanguageChange as EventListener);
-    };
-  }, []);
-
   const currentContent = content[language];
-  const isRTL = language === 'ar';
 
   const serviceImages = [
     'https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=600&q=80',

@@ -1,8 +1,9 @@
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const VirtualTourSection = () => {
-  const [language, setLanguage] = useState<'ar' | 'en'>('ar');
+  const { language } = useLanguage();
 
   const content = {
     ar: {
@@ -14,17 +15,6 @@ const VirtualTourSection = () => {
       subtitle: 'Explore this property through an interactive 360-degree virtual tour'
     }
   };
-
-  useEffect(() => {
-    const handleLanguageChange = (event: CustomEvent) => {
-      setLanguage(event.detail);
-    };
-
-    window.addEventListener('languageChange', handleLanguageChange as EventListener);
-    return () => {
-      window.removeEventListener('languageChange', handleLanguageChange as EventListener);
-    };
-  }, []);
 
   useEffect(() => {
     // Ensure the CloudPano script loads properly

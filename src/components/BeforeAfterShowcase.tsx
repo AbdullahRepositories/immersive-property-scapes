@@ -1,10 +1,11 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const BeforeAfterShowcase = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-  const [language, setLanguage] = useState<'ar' | 'en'>('ar');
+  const { language } = useLanguage();
 
   const content = {
     ar: {
@@ -22,17 +23,6 @@ const BeforeAfterShowcase = () => {
       instruction: 'Drag the line to compare between the two images'
     }
   };
-
-  useEffect(() => {
-    const handleLanguageChange = (event: CustomEvent) => {
-      setLanguage(event.detail);
-    };
-
-    window.addEventListener('languageChange', handleLanguageChange as EventListener);
-    return () => {
-      window.removeEventListener('languageChange', handleLanguageChange as EventListener);
-    };
-  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging) return;
