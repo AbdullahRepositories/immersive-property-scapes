@@ -184,20 +184,20 @@ const ServicesOverview = () => {
               </div>
               
               <CardHeader className={`pb-2 sm:pb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
+                <CardTitle className="text-lg sm:text-xl text-charcoal mb-2">
+                  {service.title}
+                </CardTitle>
                 <CardDescription className="text-charcoal/70 text-sm sm:text-base">
                   {service.description}
                 </CardDescription>
-                <CardTitle className="text-lg sm:text-xl text-charcoal">
-                  {service.title}
-                </CardTitle>
               </CardHeader>
               
-              <CardContent>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+              <CardContent className={isRTL ? 'text-right' : 'text-left'}>
+                <div className={`grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 ${isRTL ? 'direction-rtl' : ''}`}>
                   {service.features.map((feature) => (
                     <div
                       key={feature}
-                      className={`flex items-center ${isRTL ? 'space-x-2 space-x-reverse' : 'space-x-2'}`}
+                      className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}
                     >
                       <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-deep-teal rounded-full flex-shrink-0"></div>
                       <span className="text-charcoal/80 text-xs sm:text-sm">{feature}</span>
